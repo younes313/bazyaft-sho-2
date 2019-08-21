@@ -27,7 +27,7 @@ SECRET_KEY = 'bud4svvf($sl1@@z1g^1&a))4_k_jb%f7bu_6v&3238zid4-dr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['younes313.pythonanywhere.com','127.0.0.1',]
+ALLOWED_HOSTS = ['younes313.pythonanywhere.com','127.0.0.1', '46.4.213.215' ,]
 
 
 # Application definition
@@ -92,26 +92,35 @@ WSGI_APPLICATION = 'bazyaft.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'OPTIONS': {
+             'sql_mode': 'traditional',
+         },
+         'NAME': 'bazyaft',
+         'USER': 'root',
+         'PASSWORD': 'Younes313!',
+         'HOST': 'localhost',
+         'PORT': '3306',
+     }
+ }
+
+
+
+
 #
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': "bazyaft_2",
+#         "HOST" : '127.0.0.1' ,
+#         "PORT" : "3306" ,
+#         "USER" : "root" ,
+#         "PASSWORD" : "Younes313!" ,
 #     }
 # }
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': "bazyaft_2",
-        "HOST" : '127.0.0.1' ,
-        "PORT" : "3306" ,
-        "USER" : "root" ,
-        "PASSWORD" : "Younes313!" ,
-    }
-}
 
 
 #
@@ -164,9 +173,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_DIR ,
-]
+STATIC_ROOT = STATIC_DIR
+# STATICFILES_DIRS = [
+#     STATIC_DIR ,
+# ]
 
 
 MEDIA_ROOT = MEDIA_DIR
