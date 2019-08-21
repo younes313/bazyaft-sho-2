@@ -92,35 +92,35 @@ WSGI_APPLICATION = 'bazyaft.wsgi.application'
 
 
 # Database
-
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'OPTIONS': {
-             'sql_mode': 'traditional',
-         },
-         'NAME': 'bazyaft',
-         'USER': 'root',
-         'PASSWORD': 'Younes313!',
-         'HOST': 'localhost',
-         'PORT': '3306',
-     }
- }
-
-
-
-
 #
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': "bazyaft_2",
-#         "HOST" : '127.0.0.1' ,
-#         "PORT" : "3306" ,
-#         "USER" : "root" ,
-#         "PASSWORD" : "Younes313!" ,
-#     }
-# }
+#      'default': {
+#          'ENGINE': 'django.db.backends.mysql',
+#          'OPTIONS': {
+#              'sql_mode': 'traditional',
+#          },
+#          'NAME': 'bazyaft',
+#          'USER': 'root',
+#          'PASSWORD': 'Younes313!',
+#          'HOST': 'localhost',
+#          'PORT': '3306',
+#      }
+#  }
+
+
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "bazyaft_2",
+        "HOST" : '127.0.0.1' ,
+        "PORT" : "3306" ,
+        "USER" : "root" ,
+        "PASSWORD" : "Younes313!" ,
+    }
+}
 
 
 #

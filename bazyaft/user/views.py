@@ -44,6 +44,13 @@ def send_sms(phone_number, code):
     # # return Response(respone.json() , status = respone.status_code)
 
 
+@permission_classes((IsAuthenticated,))
+class GetFeedBackNum(APIView):
+
+    def get(self, request, format=None):
+        num = len(OrderHistory.objects.filter(user=request.user, order_status="done") )
+        return Response({"num":num ,} , status=status.HTTP_200_OK)
+
 
 @permission_classes((IsAuthenticated,))
 class GetFeedBack(APIView):

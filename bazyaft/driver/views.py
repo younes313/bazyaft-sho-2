@@ -187,24 +187,26 @@ class ConfirmOrEditOrder(APIView):
             data = serializer.data
             order = Order.objects.get(id = data['order_id'] )
             if serializer.data['status_driver'] == 'edit':
+                print(data)
                 data.pop('status_driver' , None)
                 data.pop('order_id', None)
                 if data['alminium'] != 0 :
-                        order.alminium = data['alminium']
+                    order.alminium = data['alminium']
                 if data['pet'] != 0 :
-                        order.alminium = data['pet']
+                    print("enter in pet!")
+                    order.pet = data['pet']
                 if data['khoshk'] != 0 :
-                        order.alminium = data['khoshk']
+                    order.khoshk = data['khoshk']
                 if data['daftar_ketab'] != 0 :
-                        order.alminium = data['daftar_ketab']
+                    order.daftar_ketab = data['daftar_ketab']
                 if data['shishe'] != 0 :
-                        order.alminium = data['shishe']
+                    order.shishe = data['shishe']
                 if data['parche'] != 0 :
-                        order.alminium = data['parche']
+                    order.parche = data['parche']
                 if data['naan'] != 0 :
-                        order.alminium = data['naan']
+                    order.naan = data['naan']
                 if data['sayer'] != 0 :
-                        order.alminium = data['sayer']
+                    order.sayer = data['sayer']
                 order.save()
             # order = order[0]
             dic = {"status":True}
