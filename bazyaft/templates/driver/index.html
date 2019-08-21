@@ -1,0 +1,28 @@
+{% extends "driver/base.html" %}
+{% block body_block %}
+<div class="container">
+
+  <div style="background-color: #ffffff" class="jumbotron">
+    <div style="background-color: #00c25f;
+
+                color: white" class="jumbotron">
+
+        <h1>
+
+            Recycle drivers sign up
+
+        </h1>
+        {% if user.is_authenticated %}
+            <h2>Hello {{ user.username }}</h2>
+
+        {% else %}
+            <h2>Login if you want to add driver</h2>
+        {% endif %}
+
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
