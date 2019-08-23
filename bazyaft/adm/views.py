@@ -16,6 +16,22 @@ from .models import Items
 
 
 @permission_classes((AllowAny,))
+class ReInitializeItems(APIView):
+
+    def post(self, request, format=None):
+        Items.objects.all().delete()
+
+        Items.objects.create(name="alminium", name_farsi="آلومینیوم")
+        Items.objects.create(name="pet", name_farsi="پلاستیک")
+        Items.objects.create(name="khoshk", name_farsi="خشک")
+        Items.objects.create(name="daftar_ketab", name_farsi="دفتر و کتاب")
+        Items.objects.create(name="shishe", name_farsi="شیشه")
+        Items.objects.create(name="parche", name_farsi="پارچه")
+        Items.objects.create(name="naan", name_farsi="نان")
+        Items.objects.create(name="sayer", name_farsi="سایر")
+
+
+@permission_classes((AllowAny,))
 class DriverHasUpdate(APIView):
     last_version = '1.1'
     is_forced = False
@@ -29,9 +45,6 @@ class DriverHasUpdate(APIView):
             return Response({'status':True, 'need_update':False}, status=status.HTTP_200_OK)
         else:
             return Response({'status':True, 'need_update':True, 'is_forced':self.is_forced}, status=status.HTTP_200_OK)
-
-
-
 
 
 @permission_classes((AllowAny,))
@@ -50,7 +63,6 @@ class UserHasUpdate(APIView):
             return Response({'status':True, 'need_update':True, 'is_forced':self.is_forced}, status=status.HTTP_200_OK)
 
 
-
 @permission_classes((AllowAny,))
 class GetImage(APIView):
 
@@ -61,8 +73,6 @@ class GetImage(APIView):
             return HttpResponse(item.image, content_type="image/png")
         except:
             return Response({"status":False}, status=status.HTTP_201_CREATED)
-
-
 
 
 class ItemsList(ListAPIView):
