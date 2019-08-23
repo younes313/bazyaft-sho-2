@@ -10,6 +10,7 @@ urlpatterns = [
 
 
 
+    path('ReInitializeItems', views.ReInitializeItems.as_view() , name='ReInitializeItems'),
     path('DriverHasUpdate', views.DriverHasUpdate.as_view() , name='DriverHasUpdate'),
     path('UserHasUpdate', views.UserHasUpdate.as_view() , name='UserHasUpdate'),
     path('GetImage', views.GetImage.as_view() , name='GetImage'),
