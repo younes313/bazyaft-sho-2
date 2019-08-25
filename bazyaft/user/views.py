@@ -31,17 +31,17 @@ import json
 # @permission_classes((AllowAny,))
 def send_sms(phone_number, code):
     username = "09223820853"
-    # password = "6872"
-    #
-    # bodyid = 7932
-    # url = "https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber"
-    # headers = {"Content-Type" : "application/x-www-form-urlencoded" , "cache-control": "no-cache"}
-    # # data={'UserName':username, 'PassWord':password, 'text':text, 'to':phone_number, 'bodyId':bodyid}
-    # data = "username=09223820853&password=6872&to={}&text={}%3B{}&bodyId=7932".format(phone_number, phone_number, code  )
-    # respone = requests.post(url, headers = headers,  data= data )
-    #
+    password = "6872"
+
+    bodyid = 7970
+    url = "https://rest.payamak-panel.com/api/SendSMS/BaseServiceNumber"
+    headers = {"Content-Type" : "application/x-www-form-urlencoded" , "cache-control": "no-cache"}
+    # data={'UserName':username, 'PassWord':password, 'text':text, 'to':phone_number, 'bodyId':bodyid}
+    data = "username=09223820853&password=6872&to={}&text={}%3B{}&bodyId=7970".format(phone_number, phone_number, code  )
+    respone = requests.post(url, headers = headers,  data= data )
+
     # print(respone.json())
-    # # return Response(respone.json() , status = respone.status_code)
+    # return Response(respone.json() , status = respone.status_code)
 
 
 @permission_classes((IsAuthenticated,))
@@ -328,7 +328,7 @@ class GetOrder(APIView):
                     order.save()
                     dic.update({"coins": order.coins})
                 elif order.give_back_type == "bag":
-                    order.bag = total_coins//10
+                    order.bag = coins//10
                     order.save()
                     dic.update({"bag": order.bag})
                 else:

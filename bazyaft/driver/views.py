@@ -25,6 +25,32 @@ from .models import DriverModel
 
 
 
+@permission_classes((permissions.IsAdminUser,))
+class DriverSignup(APIView):
+
+    def post(self, request, format=None):
+        serialzer = DriverSignupSerializer(data=request.data)
+        if serialzer.is_valid():
+            if DriverModel.objects.filter(phone_number=serialzer.data['phone_number']).exists():
+                return Response({"status":False, "error":"200"}, status=status.HTTP_200_OK)  # phone_number already exists
+            if DriverModel.objects.filter(national_code=serialzer.data['national_code']).exists():
+                return Response({"status":False, "error":"201"}, status=status.HTTP_200_OK)  # national_code already exists
+            user = User.objects.create_user(username=serialzer.data['phone_number'], password=serialzer.data['national_code'], first_name=serialzer.data['first_name'], last_name=serialzer.data['last_name'])
+            data = serialzer.data
+            data.pop('first_name', None)
+            data.pop('last_name', None)
+            drv = DriverModel.objects.create(user=user, **data)
+            if 'profile_pic' in request.data:
+                print("yae")
+                drv.profile_pic = request.data['profile_pic']
+                drv.save()
+            return Response({"status":True}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status":False, "error":"202"}, status=status.HTTP_200_OK)  # incorrect input
+
+
+
+
 @permission_classes((permissions.IsAuthenticated,))
 class GetDriverInfo(APIView):
 
@@ -221,17 +247,15 @@ class ConfirmOrEditOrder(APIView):
                     order.user.khanevar.save()
                     dic.update({"coins": order.coins})
                 elif order.give_back_type == "bag":
-                    order.bag = total_coins // 10
+                    order.bag = coins // 10
                     order.save()
-                    order.user.khanevar.coins = total_coins - order.bag * 10
+                    order.user.khanevar.coins += coins % 10
                     order.user.khanevar.save()
                     dic.update({"coins": order.coins})
                     dic.update({"bag": order.bag})
 
             elif hasattr(order.user , "edari"):
-                print(1)
                 if order.give_back_type == "money":
-                    print(2)
                     order.money = order.calculate_money()
                     order.save()
                     dic.update({"money": order.money})

@@ -6,6 +6,9 @@ from rest_framework import status
 from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view, permission_classes
+from django.contrib.auth import authenticate
+from rest_framework.authtoken.models import Token
+
 
 
 
@@ -13,6 +16,22 @@ from rest_framework.decorators import api_view, permission_classes
 
 from .serializers import ItemsSerializer
 from .models import Items
+
+
+@permission_classes((AllowAny,))
+class AdminLogin(APIView):
+
+    def post(self, request, format=None):
+        username = request.data['username']
+        password = request.data['password']
+        user = authenticate(request=request, username=username, password=password)
+        if user:
+            if user.is_superuser:
+                token , _ = Token.objects.get_or_create(user=user)
+                return Response({"status":True, "token":token.key}, status=status.HTTP_200_OK)
+        return Response({"status":False}, status=status.HTTP_200_OK)
+
+
 
 
 @permission_classes((AllowAny,))
@@ -29,6 +48,8 @@ class ReInitializeItems(APIView):
         Items.objects.create(name="parche", name_farsi="پارچه")
         Items.objects.create(name="naan", name_farsi="نان")
         Items.objects.create(name="sayer", name_farsi="سایر")
+
+        return Response(status=status.HTTP_200_OK)
 
 
 @permission_classes((AllowAny,))

@@ -9,6 +9,7 @@ urlpatterns = [
     # path('GetOrder', views.GetOrder.as_view() , name='GetOrder'),
 
 
+    path('DriverSignup', views.DriverSignup.as_view() , name='DriverSignup'),
     path('GetDriverInfo', views.GetDriverInfo.as_view() , name='GetDriverInfo'),
     path('GetToken', views.GetToken.as_view() , name='GetToken'),
     path('GetCode', views.GetCode.as_view() , name='GetCode'),

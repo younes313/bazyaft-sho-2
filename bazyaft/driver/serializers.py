@@ -4,6 +4,16 @@ from django.contrib.auth.models import User
 # from user.models import Khanevar , Edari , Tegari , Order
 
 from user.models import Order , OrderHistory
+from driver.models import DriverModel
+
+class DriverSignupSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField()
+    last_name = serializers.CharField()
+    class Meta:
+        model = DriverModel
+        fields = ( 'first_name', 'last_name', 'national_code' , 'phone_number','car_certificate_number','car_name','car_palette_two_first','car_palette_letter','car_palette_three_last','car_palette_city_code','profile_pic',)
+
+
 
 
 class GetDriverInfoSerializer(serializers.Serializer):
