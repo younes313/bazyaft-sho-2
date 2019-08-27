@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['younes313.pythonanywhere.com','127.0.0.1', '46.4.213.215' ,]
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 
 REST_FRAMEWORK = {
