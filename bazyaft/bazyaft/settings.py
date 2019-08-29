@@ -27,7 +27,7 @@ SECRET_KEY = 'bud4svvf($sl1@@z1g^1&a))4_k_jb%f7bu_6v&3238zid4-dr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['younes313.pythonanywhere.com','127.0.0.1', '46.4.213.215' ,]
+ALLOWED_HOSTS = ['younes313.pythonanywhere.com','127.0.0.1', '46.4.213.215' ,'www.eco-recycle.ir']
 
 
 # Application definition
@@ -48,8 +48,6 @@ INSTALLED_APPS = [
 
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_CREDENTIALS = True
 
 
 REST_FRAMEWORK = {
@@ -65,14 +63,24 @@ REST_FRAMEWORK = {
 
 
 MIDDLEWARE = [
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+
+
 
 ROOT_URLCONF = 'bazyaft.urls'
 
@@ -95,7 +103,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bazyaft.wsgi.application'
 
 
-# Database
+Database
 
 DATABASES = {
      'default': {
@@ -125,7 +133,7 @@ DATABASES = {
 #         "PASSWORD" : "Younes313!" ,
 #     }
 # }
-
+#
 
 #
 # DATABASES = {
