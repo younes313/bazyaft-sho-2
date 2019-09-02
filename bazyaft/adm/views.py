@@ -18,6 +18,7 @@ from .serializers import ItemsSerializer
 from .models import Items
 
 #######################
+
 def index(request):
     return render(request,'Recycle/index.html')
 
@@ -25,7 +26,7 @@ def loginPage(request):
     return render(request,'Recycle/loginPage.html')
 
 def RegisterDrivers(request):
-    return render(request,'Recycle/registerDrivers.html')
+    return render(request,'Recycle/RegisterDrivers.html')
 
 ########################
 

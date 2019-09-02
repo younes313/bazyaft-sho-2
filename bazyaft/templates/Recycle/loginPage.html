@@ -30,7 +30,7 @@
             </label>
           </div>
           <div class="mymymy">
-            <input class="input-field" id="username-field" value="Younes313">
+            <input class="input-field" id="username-field" >
           </div>
         </div>
         <div class="login-row">
@@ -40,7 +40,7 @@
             </label>
           </div>
           <div class="mymymy">
-            <input class="input-field" id="password-field" value="Younes313!">
+            <input class="input-field" id="password-field" >
           </div>
         </div>
       </div>
@@ -72,9 +72,17 @@ function handleLoginRequest(e) {
     }
   };
   xhr.onload = function () {
-  var queryString = "?token=" +JSON.parse(xhr.responseText)["token"];
+  let json = JSON.parse(xhr.responseText);
+  if (json["status"]==true)
+  {
+  var queryString = "?token=" +json["token"];
   // document.cookie = "token="+JSON.parse(xhr.responseText)["token"];
   window.location.href = '{% url 'adm:RegisterDrivers' %}' + queryString;
+  }
+  else
+  {
+    alert("نام کاربری یا رمز عبور اشتباه است")
+  }
   };
   // var data = JSON.stringify(myFormData);
   var data = new Object();

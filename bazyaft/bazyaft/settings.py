@@ -122,7 +122,7 @@ DATABASES = {
 
 
 
-
+#
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -133,7 +133,7 @@ DATABASES = {
 #         "PASSWORD" : "Younes313!" ,
 #     }
 # }
-#
+
 
 #
 # DATABASES = {

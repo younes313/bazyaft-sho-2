@@ -132,7 +132,7 @@ class GetCode(APIView):
         user.drivermodel.save()
 
         # token , _ = Token.objects.get_or_create(user=user)
-        return Response({"status":True, "code":code, }, status=status.HTTP_200_OK)
+        return Response({"status":True,  }, status=status.HTTP_200_OK)
 
 
 

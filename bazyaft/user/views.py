@@ -214,7 +214,7 @@ class EditUser(APIView):
                         user.khanevar.code = code
                         user.khanevar.code_time = timezone.now()
                         # user.khanevar.phone_number = value
-                        send_sms(user.khanevar.phone_number, code)
+                        send_sms(data['phone_number'], code)
                         user.khanevar.save()
                 elif kind == 'e':
                     if user.edari.phone_number != value:
@@ -222,7 +222,7 @@ class EditUser(APIView):
                         user.edari.code = code
                         user.edari.code_time = timezone.now()
                         # user.edari.phone_number = value
-                        send_sms(user.edari.phone_number, code)
+                        send_sms(data['phone_number'], code)
                         user.edari.save()
                 elif kind == 't':
                     if user.tegari.phone_number != value:
@@ -230,7 +230,7 @@ class EditUser(APIView):
                         user.tegari.code = code
                         user.tegari.code_time = timezone.now()
                         # user.tegari.phone_number = value
-                        send_sms(user.tegari.phone_number, code)
+                        send_sms(data['phone_number'], code)
                         user.tegari.save()
 
 
@@ -256,7 +256,7 @@ class EditUser(APIView):
                     user.tegari.save()
 
             if is_number_changed:
-                return Response({'status':True, "is_number_changed":is_number_changed, "code" : code } ,status=status.HTTP_200_OK)
+                return Response({'status':True, "is_number_changed":is_number_changed, } ,status=status.HTTP_200_OK)
 
             return Response({'status':True, "is_number_changed":is_number_changed} ,status=status.HTTP_200_OK)
 
@@ -383,7 +383,7 @@ class GetTokenPhonenumber(APIView):
 
                 send_sms(user.khanevar.phone_number, code)
 
-                return Response({"status":True, 'username':user.username, 'code':code}, status=status.HTTP_200_OK)
+                return Response({"status":True, 'username':user.username, }, status=status.HTTP_200_OK)
                 # return Response({"status":True, "token":token.key, "user_type":user_type}, status=status.HTTP_200_OK)
             except:
                 pass
@@ -405,7 +405,7 @@ class GetTokenPhonenumber(APIView):
 
                 send_sms(user.edari.phone_number, code)
 
-                return Response({"status":True, 'username':user.username, 'code':code}, status=status.HTTP_200_OK)
+                return Response({"status":True, 'username':user.username, }, status=status.HTTP_200_OK)
             except:
                 pass
             try:
@@ -426,7 +426,7 @@ class GetTokenPhonenumber(APIView):
 
                 send_sms(user.tegari.phone_number, code)
 
-                return Response({"status":True, 'username':user.username, 'code':code}, status=status.HTTP_200_OK)
+                return Response({"status":True, 'username':user.username, }, status=status.HTTP_200_OK)
             except:
                 pass
 
@@ -578,7 +578,6 @@ class KhanevarEmailRegister(APIView):
             user = User.objects.get(username = serializer.data['user']['username'])
             if user.khanevar.phone_number != "":
                 code = randint(100000 , 999999)
-                dic['data']['code'] = code
                 user.khanevar.code = code
                 user.khanevar.code_time = timezone.now()
                 user.khanevar.save()
@@ -656,7 +655,6 @@ class EdariEmailRegister(APIView):
             user = User.objects.get(username = serializer.data['user']['username'])
             if user.edari.phone_number != "":
                 code = randint(100000 , 999999)
-                dic['data']['code'] = code
                 user.edari.code = code
                 user.edari.code_time = timezone.now()
                 user.edari.save()
@@ -720,7 +718,6 @@ class TegariEmailRegister(APIView):
             user = User.objects.get(username = serializer.data['user']['username'])
             if user.tegari.phone_number != "":
                 code = randint(100000 , 999999)
-                dic['data']['code'] = code
                 user.tegari.code = code
                 user.tegari.code_time = timezone.now()
                 user.tegari.save()
