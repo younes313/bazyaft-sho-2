@@ -14,7 +14,7 @@ class DriverModel(models.Model):
     car_certificate_number = models.CharField(max_length=20)
     car_name = models.CharField(max_length=50)
     car_palette_two_first = models.CharField(max_length=2)
-    car_palette_letter = models.CharField(max_length=1)
+    car_palette_letter = models.CharField(max_length=3)
     car_palette_three_last = models.CharField(max_length=3)
     car_palette_city_code = models.CharField(max_length=2)
     profile_pic = models.ImageField(upload_to='profile_pics', blank=True)

@@ -46,7 +46,7 @@ class DriverSignup(APIView):
                 drv.save()
             return Response({"status":True}, status=status.HTTP_200_OK)
         else:
-            return Response({"status":False, "error":"202"}, status=status.HTTP_200_OK)  # incorrect input
+            return Response({"status":False, "error":"202" , "exact":serialzer.errors}, status=status.HTTP_200_OK)  # incorrect input
 
 
 

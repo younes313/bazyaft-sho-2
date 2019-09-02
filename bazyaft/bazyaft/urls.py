@@ -19,13 +19,18 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from driver import views
+from adm import views as adm_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('' , views.index , name = 'index'),
-    path('special/' , views.special , name = 'special'),
-    path('logout/' , views.user_logout , name = 'logout'),
+    # path('' , views.index , name = 'index'),
+    # path('special/' , views.special , name = 'special'),
+    # path('logout/' , views.user_logout , name = 'logout'),
+
+
+    path('' , adm_view.index , name = 'index'),
+    
+
     path('user/', include('user.urls') ),
     path('driver/' , include('driver.urls')) ,
     path('adm/', include("adm.urls")),

@@ -17,6 +17,18 @@ from rest_framework.authtoken.models import Token
 from .serializers import ItemsSerializer
 from .models import Items
 
+#######################
+def index(request):
+    return render(request,'Recycle/index.html')
+
+def loginPage(request):
+    return render(request,'Recycle/loginPage.html')
+
+def RegisterDrivers(request):
+    return render(request,'Recycle/registerDrivers.html')
+
+########################
+
 
 @permission_classes((AllowAny,))
 class AdminLogin(APIView):

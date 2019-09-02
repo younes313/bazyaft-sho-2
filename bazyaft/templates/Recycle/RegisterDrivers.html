@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>Register Driver</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href= '{% static 'css/RegisterDriver.css' %}'  type="text/css" media="screen">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="container">
+  <main style="text-align: right; margin-top: 5%">
+    <section>
+      <h1>
+        ثبت نام رانندگان
+      </h1>
+      <div class="row">
+        <div class="col-sm-3">
+          <div style="margin: auto;">
+            <img src= '{% static 'img/LOGO.png' %}'   alt="logo" style="width: 100px;" >
+          </div>
+        </div>
+        <div class="col-sm-9" dir="rtl">
+          <div>
+            <h3>
+              راننده گرامی!
+            </h3>
+            <p>
+              به منظور ثبت نام در اپلیکیشن بازیافت، لطفاً مشخصات خود را بصورت دقیق در فرم زیر وارد نمائید.
+            </p>
+          </div>
+          <div id="form-container">
+            <form enctype="multipart/form-data" method="post" name="formData" id="reg-form" >
+              <div class="reg-form-row" >
+                <div class="reg-form-row-title">
+                  نام:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" id="first_name" type="text" name="first_name"  required>
+                </label>
+              </div>
+              <div class="reg-form-row" >
+                <div class="reg-form-row-title">
+                  نام خانوادگی:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" id="last_name" type="text" name="last_name" required >
+                </label>
+              </div>
+              <div class="reg-form-row">
+                <div class="reg-form-row-title">
+                  شماره موبایل:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" id="phone_number" type="tel" name="phone_number" pattern="[0-9]{11}" required dir="ltr">
+                </label>
+              </div>
+              <div class="reg-form-row">
+                <div class="reg-form-row-title">
+                  کد ملی:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" id="national_code" type="text" name="national_code" pattern="[0-9]{10}" required dir="ltr" >
+                </label>
+              </div>
+              <div class="reg-form-row">
+                <div class="reg-form-row-title">
+                  شماره گواهی نامه:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" type="text" id="car_certificate_number"  name="car_certificate_number" required dir="ltr" >
+                </label>
+              </div>
+              <div class="reg-form-row" >
+                <div class="reg-form-row-title">
+                  نام ماشین:
+                </div>
+                <label class="reg-form-input">
+                  <input class="reg-form-input-field" id="car_name" type="text" name="car_name" required>
+                </label>
+              </div>
+              <div class="reg-form-row" >
+                <div class="reg-form-row-title">
+                  پلاک خودرو:
+                </div>
+                <div class="reg-form-input" dir="ltr">
+                  <label id="back-plate">
+                    <input class="car-plate" type="text" id="car_palette_two_first" name="car_palette_two_first" size="2" maxlength="2"
+                           placeholder="**" required style="margin-left: 20px;" value="--">
+
+                    <select class="car-plate" id="car_palette_letter" name="car_palette_letter" required  >
+                      <option>الف</option>
+                      <option>ب</option>
+                      <option>پ</option>
+                      <option>ت</option>
+                      <option>ث</option>
+                      <option>ج</option>
+                      <option>چ</option>
+                      <option>ح</option>
+                      <option>خ</option>
+                      <option>د</option>
+                      <option>ذ</option>
+                      <option>ر</option>
+                      <option>ز</option>
+                      <option>ژ</option>
+                      <option>س</option>
+                      <option>ش</option>
+                      <option>ص</option>
+                      <option>ض</option>
+                      <option>ط</option>
+                      <option>ظ</option>
+                      <option>ع</option>
+                      <option>غ</option>
+                      <option>ف</option>
+                      <option>ق</option>
+                      <option>ک</option>
+                      <option>گ</option>
+                      <option>ل</option>
+                      <option>م</option>
+                      <option>ن</option>
+                      <option>و</option>
+                      <option>ه</option>
+                      <option>ی</option>
+                    </select>
+                    <input class="car-plate" type="text" id="car_palette_three_last"  name="car_palette_three_last" size="3" maxlength="3" placeholder="***" required value="---">
+                    <input class="car-plate" type="text" id="car_palette_city_code" name="car_palette_city_code" size="2" maxlength="2" placeholder="**" required value="--">
+                  </label>
+                </div>
+              </div>
+              <div class="reg-form-row">
+                <div class="reg-form-row-title">
+                  تصویر راننده:
+                </div>
+                <label for="choose-file-btn" id="reg-form-choose-file">
+                  انتخاب تصویر
+                </label>
+                <input id="choose-file-btn" type="file" accept="image/*" name="profile_pic" required>
+                <span id="show-file-name"></span>
+              </div>
+              <div class="reg-form-row">
+                <div class="reg-form-row-title">
+                  ثبت اطلاعات:
+                </div>
+                <button type="submit" id="submit-button" >
+                  ثبت اطلاعات
+                </button>
+              </div>
+            </form>
+          </div>
+          <div id="show-response"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  $('body').on('keydown', 'input, select, textarea', function(e) {
+    let self = $(this)
+      , form = self.parents('form:eq(0)')
+      , focusable
+      , next
+    ;
+    if (e.keyCode === 13) {
+      focusable = form.find('input,a,select,button,textarea').filter(':visible');
+      next = focusable.eq(focusable.index(this)+1);
+      if (next.length) {
+        next.focus();
+      } else {
+        form.submit();
+      }
+      return false;
+    }
+  });
+</script>
+<script>
+  $("#choose-file-btn").change(function() {
+    filename = this.files[0].name;
+    console.log(filename);
+    document.getElementById("show-file-name").innerHTML = filename;
+  });
+</script>
+<script src= '{% static 'js/registerDrivers.js' %}'  ></script>
+
+</body>
+</html>

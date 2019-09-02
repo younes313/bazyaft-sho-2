@@ -1,0 +1,143 @@
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/eot/IRANSansWeb_Black.eot');
+  src: url('../fonts/eot/IRANSansWeb_Black.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb_Black.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb_Black.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb_Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/eot/IRANSansWeb_Bold.eot');
+  src: url('../fonts/eot/IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb_Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb_Bold.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb_Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/eot/IRANSansWeb_Medium.eot');
+  src: url('../fonts/eot/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb_Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb_Medium.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb_Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/eot/IRANSansWeb_Light.eot');
+  src: url('../fonts/eot/IRANSansWeb_Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb_Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb_Light.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb_Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/eot/IRANSansWeb_UltraLight.eot');
+  src: url('../fonts/eot/IRANSansWeb_UltraLight.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb_UltraLight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb_UltraLight.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb_UltraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/eot/IRANSansWeb.eot');
+  src: url('../fonts/eot/IRANSansWeb.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/IRANSansWeb.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/IRANSansWeb.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/ttf/IRANSansWeb.ttf') format('truetype');
+}
+
+@media only screen and (max-width: 575px){
+  .reg-form-input {
+    display: contents;
+  }
+  .reg-form-input-field{
+    width: 100%;
+  }
+  .reg-form-row-title{
+    flex: 0 0 40%;
+    max-width: 40%;
+    flex-wrap: wrap;
+  }
+  .reg-form-input{
+    flex: 0 0 60%;
+    max-width: 60%;
+
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 991px){
+  .reg-form-row-title{
+    flex: 0 0 35%;
+    max-width: 35%;
+    flex-wrap: wrap;
+  }
+  .reg-form-input{
+    flex: 0 0 65%;
+    max-width: 65%;
+  }
+}
+@media only screen and (min-width: 992px){
+  .reg-form-row-title{
+    flex: 0 0 20%;
+    max-width: 20%;
+    flex-wrap: wrap;
+  }
+  .reg-form-input{
+    flex: 0 0 80%;
+    max-width: 80%;
+
+  }
+
+}
+.container{
+  font-family: "IRANSans";
+}
+#reg-form{
+  background-color: #fafafa;
+}
+#back-plate{
+  background-image: url("../img/personal-car-license-plate.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.reg-form-row{
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 30px;
+  margin: 15px 0;
+}
+.reg-form-input-field{
+  border: 1px solid gray;
+  border-radius: 10px;
+  outline: none;
+  padding: 0 10px;
+}
+.car-plate{
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  height: 44px;
+  text-align: center;
+}
+#choose-file-btn{
+  max-width: 0;
+  visibility: hidden;
+}
+#show-file-name{
+  margin-right: 10px;
+  margin-top: 4px;
+}
+#reg-form-choose-file{
+  position: relative;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #00bfd6;
+  padding: 7px 30px;
+  cursor: pointer;
+}
+#submit-button{
+  position: relative;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #00bfd6;
+  padding: 7px 30px;
+  cursor: pointer;
+}
