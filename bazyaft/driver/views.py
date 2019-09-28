@@ -49,8 +49,6 @@ class DriverSignup(APIView):
             return Response({"status":False, "error":"202" , "exact":serialzer.errors}, status=status.HTTP_200_OK)  # incorrect input
 
 
-
-
 @permission_classes((permissions.IsAuthenticated,))
 class GetDriverInfo(APIView):
 

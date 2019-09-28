@@ -5,7 +5,7 @@ function handleLoginRequest(e) {
   const myFormData = new FormData();
   myFormData.append("username", usr.value);
   myFormData.append("password", pass.value);
-  const url = "http://46.4.213.215/adm/AdminLogin";
+  const url = "http://younes313.pythonanywhere.com/adm/AdminLogin";
 
   xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);

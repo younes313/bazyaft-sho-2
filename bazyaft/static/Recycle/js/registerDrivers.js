@@ -15,7 +15,7 @@ var token = queries[0].split("=")[1];
   form.addEventListener("submit",function (ev) {
     ev.preventDefault();
 
-    const url = "http://46.4.213.215/driver/DriverSignup";
+    const url = "http://younes313.pythonanywhere.com/driver/DriverSignup";
     request = new XMLHttpRequest();
     request.open("POST", url, true);
     request.setRequestHeader("Authorization", "Token "+token);
